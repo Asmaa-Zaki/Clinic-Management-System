@@ -10,8 +10,6 @@ import { AppointmentService } from '../../Features/appointment.service'
 
 export class AppointmentReadComponent implements OnInit {
   
-  AppointmentList: Appointment[]= []
-  
  constructor(public appointmentService: AppointmentService ) 
   {
 
@@ -26,14 +24,7 @@ export class AppointmentReadComponent implements OnInit {
     this.appointmentService.GetList().subscribe((res)=>
     {
       this.appointmentService.AppiontList= res as Appointment[];
-      this.AppointmentList= this.appointmentService.AppiontList;
-      //for test
-      this.AppointmentList.forEach(element => {
-        console.log(element)
-      });
     })
   }
-  //AppointmentList:Appointment[]=this.appointmentService.AppointmentList
-
 }
 

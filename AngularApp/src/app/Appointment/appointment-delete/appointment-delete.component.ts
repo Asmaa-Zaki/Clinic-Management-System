@@ -9,6 +9,7 @@ import { Appointment } from 'src/app/Module/appointment';
 })
 export class AppointmentDeleteComponent implements OnInit {
   @Input() appointment:Appointment= new Appointment(0,0,0,0,"")
+  
   constructor(private appointmentService:AppointmentService) { }
 
   ngOnInit(): void {
@@ -16,7 +17,7 @@ export class AppointmentDeleteComponent implements OnInit {
 
   DeleteAppointment()
   {
-    this.appointmentService.DeleteAppoint(this.appointmentService.nAppointment).subscribe((res)=>{
+    this.appointmentService.DeleteAppoint().subscribe((res)=>{
 
     })
   }

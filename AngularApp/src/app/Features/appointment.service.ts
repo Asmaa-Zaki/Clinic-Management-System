@@ -20,8 +20,8 @@ export class AppointmentService {
   //addToList
   AddToList()
   {
-    console.log("Saved Clicked");
-   return this.http.post(this.baseURL, this.nAppointment)
+    console.log(this.nAppointment);
+    return this.http.post(this.baseURL, this.nAppointment)
   }
 
   GetList()
@@ -29,9 +29,9 @@ export class AppointmentService {
       return this.http.get(this.baseURL)
   }
 
-  DeleteAppoint(appoint:Appointment)
+  DeleteAppoint()
   {
-    console.log(""+(this.baseURL)+`/${appoint._id}`)
+    console.log(""+(this.baseURL)+`/${this.nAppointment._id}`)
       return this.http.delete(this.baseURL+'/'+this.nAppointment._id)
       
   }

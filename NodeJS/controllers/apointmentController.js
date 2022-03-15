@@ -36,7 +36,7 @@ router.get('/:id',(req, res)=>{
 //create
 router.post('/',(req, res)=>{
     var emp = new appointment({
-        _id: req.body.id,
+        _id: req.body._id,
         doctorId: req.body.doctorId,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
