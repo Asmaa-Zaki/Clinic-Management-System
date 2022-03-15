@@ -1,1 +1,33 @@
-<p>appointment-create works!</p>
+<!-- <div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="col s5">
+
+                    </div>
+                    <form (click)="employeeForm()" >
+                        
+                    </form>
+                    <div class="col s7">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<br>
+<br>
+<label style="width: 130px;">Id </label>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.id"><br><br>
+<label style="width: 130px;">doctorId </label>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.doctorId"><br><br>
+<label style="width: 130px;">startTime </label>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.startTime"><br><br>
+<label style="width: 130px;">endTime </label>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.endTime"><br><br>
+<label style="width: 130px;">medicalSpecialty </label>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.medicalSpecialty"><br><br>
+<button style="margin-left: 170px;" class="btn btn-success" (click)="save()">Save</button>
+

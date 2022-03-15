@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { AppointmentService } from 'src/app/Features/appointment.service';
+import { Appointment } from 'src/app/Module/appointment';
 
 @Component({
   selector: 'app-appointment-update',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appointment-update.component.css']
 })
 export class AppointmentUpdateComponent implements OnInit {
-
-  constructor() { }
+  @Input() appointment:Appointment= new Appointment(0,0,0,0,"")
+  //@Output() cAppointment:Appointment= new Appointment(0,0,0,0,"")
+  appoint: Appointment= new Appointment(0,0,0,0,"")
+  constructor(private appointymentService: AppointmentService) { }
 
   ngOnInit(): void {
   }
 
+  EditAppoint()
+  {
+    console.log(this.appointment)
+    this.appointymentService.nAppointment=this.appointment
+  }
+
+  SaveAppoint()
+  {
+    this.appointymentService.EditAppoint(this.appointymentService.nAppointment).subscribe((res)=>{
+
+    })
+  }
 }

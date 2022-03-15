@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AppointmentService } from 'src/app/Features/appointment.service';
+import { Appointment } from 'src/app/Module/appointment';
 
 @Component({
   selector: 'app-appointment-delete',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appointment-delete.component.css']
 })
 export class AppointmentDeleteComponent implements OnInit {
-
-  constructor() { }
+  @Input() appointment:Appointment= new Appointment(0,0,0,0,"")
+  constructor(private appointmentService:AppointmentService) { }
 
   ngOnInit(): void {
+  }
+
+  DeleteAppointment()
+  {
+    this.appointmentService.DeleteAppoint(this.appointmentService.nAppointment).subscribe((res)=>{
+
+    })
   }
 
 }

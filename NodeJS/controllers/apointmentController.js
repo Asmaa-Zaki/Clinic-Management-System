@@ -4,9 +4,6 @@ var express = require('express')
 //router
 var router = express.Router()
 
-//for get by it
-var objectId = require('mongoose').Types.ObjectId
-
 //apointment
 var {appointment} = require('../models/appointment')
 
@@ -24,7 +21,7 @@ router.get('/',(req, res)=>{
 //read by id
 //localhost:3000/appointment/id(value)
 router.get('/:id',(req, res)=>{
-    if(!objectId.isValid(req.params.id))
+    if(!req.params.id)
         return res.status(400).send("No record given with id: "+req.params.id)
 
     appointment.findById(req.params.id, (err, doc)=>
@@ -39,6 +36,7 @@ router.get('/:id',(req, res)=>{
 //create
 router.post('/',(req, res)=>{
     var emp = new appointment({
+        _id: req.body.id,
         doctorId: req.body.doctorId,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
@@ -47,21 +45,23 @@ router.post('/',(req, res)=>{
     emp.save((err, doc)=>
     {
         if(!err)
-           // console.log("Appointment Saved")
-           res.send("Appointment Saved")
+            console.log("Appointment Saved")
+           //res.send({mess:"Appointment Saved"})
         else    
-            //console.log("Error in save Appointment: " +JSON.stringify(err, undefined, 2))
-            res.send(JSON.stringify(err, undefined,2))
+            console.log("Error in save Appointment: " +JSON.stringify(err, undefined, 2))
+           // res.send("error"+JSON.stringify(err, undefined,2))
     })
-    //res.send(emp)
+    res.send(emp)
 })
+
 
 //update
 router.put('/:id', (req, res)=>{
-    if(!objectId.isValid(req.params.id))
+    if(!req.params.id)
     return res.status(400).send("No record given with id: "+req.params.id)
 
     var newAppointment = new appointment({
+            _id: req.params.id,
             doctorId: req.body.doctorId,
             startTime: req.body.startTime,
             endTime: req.body.endTime,
@@ -69,28 +69,30 @@ router.put('/:id', (req, res)=>{
         })
 
     
-    appointment.findByIdAndUpdate(req.params.id, {$set: newAppointment}, {new: true}, (err, doc)=>
+    appointment.findByIdAndUpdate(req.params.id, {$set:newAppointment}, {new: true}, (err, doc)=>
     {
         if(!err)
             res.send(doc)
         else
             console.log("Error in Appointment Update: " +JSON.stringify(err, undefined,2))
     })
+   // res.send(newAppointment)
 })
+
 
 //delete
 router.delete('/:id', (req, res)=>{
-    if(!objectId.isValid(req.params.id))
+    if(!req.params.id)
     return res.status(400).send("No record given with id: "+req.params.id)
 
     appointment.findByIdAndRemove(req.params.id, (err, doc)=>
     {
         if(!err)
-            res.send(doc)
+           // res.send("deleted"+doc)
+           console.log("Delteed")
         else
         console.log("Error in Appointment Delete: " +JSON.stringify(err, undefined,2))
     })
-
 })
 
 module.exports = router

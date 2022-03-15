@@ -10,28 +10,30 @@ import { AppointmentService } from '../../Features/appointment.service'
 
 export class AppointmentReadComponent implements OnInit {
   
-  nAppointment: Appointment= new Appointment("", 0 ,0 ,0 ,"")
- 
- constructor(private appointmentService: AppointmentService ) 
+  AppointmentList: Appointment[]= []
+  
+ constructor(public appointmentService: AppointmentService ) 
   {
 
   }
 
   ngOnInit(): void {
-  }
-
-  employeeForm()
-  {
-
-  }
-  save()
-  {
-    this.appointmentService.AddToList(this.nAppointment).subscribe((res)=>{
-
-    })
+    this.show()
   } 
 
-  
- //AppointList:Appointment[]=this.appointmentService.AppointmentList;
-  
+  show()
+  {
+    this.appointmentService.GetList().subscribe((res)=>
+    {
+      this.appointmentService.AppiontList= res as Appointment[];
+      this.AppointmentList= this.appointmentService.AppiontList;
+      //for test
+      this.AppointmentList.forEach(element => {
+        console.log(element)
+      });
+    })
+  }
+  //AppointmentList:Appointment[]=this.appointmentService.AppointmentList
+
 }
+

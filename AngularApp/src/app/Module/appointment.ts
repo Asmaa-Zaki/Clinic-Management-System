@@ -5,7 +5,7 @@ export class Appointment {
     // endTime: number=0;
     // medicalSpecialty : string=""
 
-    constructor(public _id:string, public doctorId:number, public startTime:number, public endTime:number, public medicalSpecialty:string)
+    constructor(public id:number, public doctorId:number, public startTime:number, public endTime:number, public medicalSpecialty:string)
     {}
 }
 

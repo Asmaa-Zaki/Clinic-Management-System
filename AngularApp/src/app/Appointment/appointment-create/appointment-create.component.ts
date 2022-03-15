@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Appointment} from '../../Module/appointment'
+import { AppointmentService } from '../../Features/appointment.service'
 
 @Component({
   selector: 'app-appointment-create',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentCreateComponent implements OnInit {
 
-  constructor() { }
+ // nAppointment: Appointment= new Appointment(0, 0 ,0 ,0 ,"")
+ 
+  constructor(public appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
   }
 
+  employeeForm()
+  {
+
+  }
+  save()
+  {
+    this.appointmentService.AddToList().subscribe((res)=>{
+
+    })
+  } 
+
+  
+  
+ //AppointList:Appointment[]=this.appointmentService.AppointmentList;
+ 
 }

@@ -13,7 +13,7 @@ const { mongoose } = require('./db.js');
 //controller
 const appointmentController= require('./controllers/apointmentController.js')
 
-//call express
+//call express 
 var App = express();
 
 //use middleware

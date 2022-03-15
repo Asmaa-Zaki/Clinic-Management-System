@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {} from '@angular/compiler'
-import { AppointmentService } from './Features/appointment.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +8,4 @@ import { AppointmentService } from './Features/appointment.service';
 })
 export class AppComponent {
   title = 'AngularApp';
-}
+  }

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
-import {} from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import {Appointment} from '../Module/appointment'
 
 @Injectable({
@@ -10,20 +10,36 @@ import {Appointment} from '../Module/appointment'
 
 export class AppointmentService {
 
-  //List of Appointments
-  AppointmentList: Appointment[]= [];
+  nAppointment: Appointment= new Appointment(0, 0 ,0 ,0 ,"")
+
   readonly baseURL= 'http://localhost:3000/appointment'
 
   constructor(private http: HttpClient){}
+  AppiontList:Appointment[]=[];
 
   //addToList
-  AddToList(Appoint: Appointment)
+  AddToList()
   {
     console.log("Saved Clicked");
-    this.AppointmentList.push(Appoint)
-    this.AppointmentList.forEach(element => {
-      console.log(element)
-    });
-   return this.http.post(this.baseURL, Appoint)
+   return this.http.post(this.baseURL, this.nAppointment)
+  }
+
+  GetList()
+  {
+      return this.http.get(this.baseURL)
+  }
+
+  DeleteAppoint(appoint:Appointment)
+  {
+    console.log(""+(this.baseURL)+`/${appoint.id}`)
+      return this.http.delete(this.baseURL+'/'+this.nAppointment.id)
+      
+  }
+
+  EditAppoint(appoint:Appointment)
+  {
+    console.log(""+(this.baseURL)+`/${appoint.id}`)
+      return this.http.put(this.baseURL+`/${appoint.id}`,appoint)
+      
   }
 }
