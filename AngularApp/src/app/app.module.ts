@@ -10,6 +10,9 @@ import { AppointmentDeleteComponent } from './Appointment/appointment-delete/app
 import { FormsModule } from '@angular/forms';
 import { AppointmentService } from './Features/appointment.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterbySpecialityPipe } from './pipes/filterby-speciality.pipe';
+import { SortAppointmentPipe } from './pipes/sort-appointment.pipe';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppointmentCreateComponent,
     AppointmentReadComponent,
     AppointmentUpdateComponent,
-    AppointmentDeleteComponent
+    AppointmentDeleteComponent,
+    FilterbySpecialityPipe,
+    SortAppointmentPipe,
   ],
   imports: [
     BrowserModule,

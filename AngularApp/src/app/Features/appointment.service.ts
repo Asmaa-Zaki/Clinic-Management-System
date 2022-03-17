@@ -2,6 +2,7 @@ import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import {Appointment} from '../Module/appointment'
+import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root'

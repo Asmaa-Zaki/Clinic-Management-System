@@ -1,22 +1,35 @@
-<table class="table table-active">
+<table class="table">
     <tr>
         <th>
-            Id
+            <label>Id</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortIdAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortIdDesc()"></i>
         </th>
         <th>
-            DoctorId
+            <label class="fw-bold">DoctorId</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortDocIdAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortDocIdDesc()"></i>
         </th>
         <th>
-            StartTime
+            <label>StartTime</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortStTimeAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortStTimeDesc()"></i>
         </th>
         <th>
-            EndTime
+            <label>EndTime</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortEnTimeAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortEnTimeDesc()"></i>
         </th>
         <th>
-            MedicalSepciality
+            <label>Sepciality</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortSpecialityAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortSpecialityDesc()"></i>
+        </th>
+        <th>
+            <input type="text" class="w w-75 h-25" [(ngModel)]="searchValue" placeholder="Filter by Speciality">
         </th>
     </tr>
-    <tr *ngFor="let appoint of appointmentService.AppiontList">
+    <tr *ngFor="let appoint of (appointmentService.AppiontList|filterbySpeciality:searchValue|sortAppointment:direction:column:type)">
         <td>{{appoint._id}}</td>
         <td>{{appoint.doctorId}}</td>
         <td>{{appoint.startTime}}</td>
