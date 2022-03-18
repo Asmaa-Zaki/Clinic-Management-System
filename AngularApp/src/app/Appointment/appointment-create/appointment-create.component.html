@@ -19,15 +19,15 @@
 </div> -->
 <br>
 <label style="width: 100px;">Id </label>
-<input type="text" [(ngModel)]="appointmentService.nAppointment._id"><br><br>
+<input type="text" [(ngModel)]="appointmentService.nAppointment._id" required><br><br>
 <label style="width: 100px;">DoctorId </label>
-<input type="text" [(ngModel)]="appointmentService.nAppointment.doctorId"><br><br>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.doctorId" required><br><br>
 <label style="width: 100px;">StartTime </label>
-<input type="text" [(ngModel)]="appointmentService.nAppointment.startTime"><br><br>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.startTime" required><br><br>
 <label style="width: 100px;">EndTime </label>
-<input type="text" [(ngModel)]="appointmentService.nAppointment.endTime"><br><br>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.endTime" required><br><br>
 <label style="width: 100px;">Specialty </label>
-<input type="text" [(ngModel)]="appointmentService.nAppointment.medicalSpecialty"><br><br>
+<input type="text" [(ngModel)]="appointmentService.nAppointment.medicalSpecialty" required=""><br><br>
 <button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>
 
 
