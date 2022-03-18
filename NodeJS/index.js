@@ -11,7 +11,8 @@ const cors= require('cors')
 const { mongoose } = require('./db.js');
 
 //controller
-const appointmentController= require('./controllers/apointmentController.js')
+const appointmentController= require('./Appointment/controllers/apointmentController.js')
+const medicineController= require('./Medicine/controllers/medicineController.js')
 
 //call express 
 var App = express();
@@ -25,4 +26,5 @@ App.listen(3000, ()=>{
     console.log("Server started at port: 3000")
 })
 
-App.use('/appointment',appointmentController)
+App.use('/appointment', appointmentController)
+App.use('/medicine', medicineController)

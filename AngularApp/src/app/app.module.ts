@@ -12,6 +12,8 @@ import { AppointmentService } from './Features/appointment.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterbySpecialityPipe } from './pipes/filterby-speciality.pipe';
 import { SortAppointmentPipe } from './pipes/sort-appointment.pipe';
+import { MedicineCreateComponent } from './Medicine/medicine-create/medicine-create.component';
+import { MedicineDeleteComponent } from './Medicine/medicine-delete/medicine-delete.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { SortAppointmentPipe } from './pipes/sort-appointment.pipe';
     AppointmentDeleteComponent,
     FilterbySpecialityPipe,
     SortAppointmentPipe,
+    MedicineCreateComponent,
+    MedicineDeleteComponent,
   ],
   imports: [
     BrowserModule,
