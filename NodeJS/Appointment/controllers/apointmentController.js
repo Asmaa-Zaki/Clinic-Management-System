@@ -2,7 +2,7 @@ const validationAppointment = require('../middleware/appointValidationMiddle');
 const _ = require('lodash');
 const bcrypt = require('bcrypt');
 //apointment
-var { appointment } = require('../models/appointment');
+var { appointment } = require('../models/appointmentt');
 //express
 var express = require('express')
 
