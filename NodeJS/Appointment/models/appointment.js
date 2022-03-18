@@ -2,7 +2,7 @@
 const mongoose = require('../../db.js')
 
 //model schema
-var appointment = mongoose.model('Appointment',
+let appointment = mongoose.model('Appointment',
     {
         _id: { type: Number },
         doctorId: { type: Number },
@@ -11,6 +11,6 @@ var appointment = mongoose.model('Appointment',
         medicalSpecialty: { type: String }
     });
 
-//export the model
+//export the appointment model
 module.exports = { appointment }
 
