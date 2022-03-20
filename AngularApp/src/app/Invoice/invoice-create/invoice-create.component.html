@@ -1,0 +1,11 @@
+<br>
+<label style=" width: 100px;">Id </label>
+<input type="text" [(ngModel)]="InvoiceService.nInvoice._id" required><br><br>
+<label style="width: 100px;">PatientId </label>
+<input type="text" [(ngModel)]="InvoiceService.nInvoice.patientId" required><br><br>
+<label style="width: 100px;">tax Of Bill </label>
+<input type="text" [(ngModel)]="InvoiceService.nInvoice.taxOfBill" required><br><br>
+<label style="width: 100px;">date Of Bill </label>
+<input type="text" [(ngModel)]="InvoiceService.nInvoice.dateOfBill" required><br><br>
+<button style="margin-left: 150px;width: 75px;border-radius: 10px;" class="btn btn-success"
+    (click)="save()">Add</button>

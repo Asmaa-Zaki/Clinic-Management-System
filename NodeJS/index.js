@@ -1,11 +1,13 @@
-//express
+const { mongoose } = require('./db.js');
+const Doctor = require('./Doctor/controllers/doctorController');
+const Patient = require('./Patient/controllers/patientController');
+const appointmentController = require('./Appointment/controllers/apointmentController.js')
+const Prescription = require('./Prescription/controllers/prescriptionController');
+const Invoice = require('./Invoice/controller/invoiceController');
+const medicineController = require('./Medicine/controllers/medicineController.js')
 const express = require('express');
-
-//body-parser
 const bodyParser = require('body-parser');
-
-//cors allow requist from any port number
-const cors= require('cors')
+const cors = require('cors');
 
 //mongoose
 const { mongoose } = require('./db.js');
@@ -20,13 +22,17 @@ var App = express();
 
 //use middleware
 App.use(bodyParser.json())
-App.use(cors({origin: 'http://localhost:4200'}));
+App.use(cors({ origin: 'http://localhost:4200' }));
 
 //listen
-App.listen(3000, ()=>{
+App.listen(3000, () => {
     console.log("Server started at port: 3000")
 })
 
 App.use('/appointment', appointmentController)
 App.use('/medicine', medicineController)
+App.use('/invoice', Invoice);
+App.use('/prescript', Prescription);
+App.use('/doctor', Doctor);
+App.use('/patient', Patient)
 App.use('/employee',employeeController)

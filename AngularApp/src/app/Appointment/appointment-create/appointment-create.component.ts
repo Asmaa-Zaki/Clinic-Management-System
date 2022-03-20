@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Appointment} from '../../Module/appointment'
+import { Appointment } from '../../Module/appointment'
 import { AppointmentService } from '../../Features/appointment.service'
 
 @Component({
@@ -17,9 +17,8 @@ export class AppointmentCreateComponent implements OnInit {
   }
 
 
-  save()
-  {
-    this.appointmentService.AddToList().subscribe((res)=>{
+  save() {
+    this.appointmentService.AddToList().subscribe((res) => {
     })
-  } 
+  }
 }

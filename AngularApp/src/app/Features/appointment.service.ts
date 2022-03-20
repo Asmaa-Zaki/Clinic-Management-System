@@ -1,7 +1,7 @@
 import { Injectable, Input } from '@angular/core';
-import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import {Appointment} from '../Module/appointment'
+import { Appointment } from '../Module/appointment'
 import { AppComponent } from '../app.component';
 
 @Injectable({
@@ -11,23 +11,21 @@ import { AppComponent } from '../app.component';
 
 export class AppointmentService {
 
-  nAppointment: Appointment= new Appointment(0, 0 ,0 ,0 ,"")
+  nAppointment: Appointment = new Appointment(0, 0, 0, 0, "")
 
-  readonly baseURL= 'http://localhost:3000/appointment'
+  readonly baseURL = 'http://localhost:3000/appointment'
 
-  constructor(private http: HttpClient){}
-  AppiontList:Appointment[]=[];
+  constructor(private http: HttpClient) { }
+  AppiontList: Appointment[] = [];
 
   //addToList
-  AddToList()
-  {
+  AddToList() {
     console.log(this.nAppointment);
     return this.http.post(this.baseURL, this.nAppointment)
   }
 
-  GetList()
-  {
-      return this.http.get(this.baseURL)
+  GetList() {
+    return this.http.get(this.baseURL)
   }
 
   DeleteAppoint()
