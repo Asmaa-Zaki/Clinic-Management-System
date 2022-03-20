@@ -1,36 +1,68 @@
 const mongoose = require('mongoose');
+const medicineSchema = require('../../Medicine/models/medicine');
 let prescriptionSchema = mongoose.Schema({
-    prescriptionId: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 100
+    _id: {
+        type: Number,
+        required: true
     },
     doctorId: {
-        type: doctorSchema,
+        type: Number,
         required: true
     },
     patientId: {
-        type: patientSchema,
+        type: Number,
         required: true
     },
     medicineId: {
-        type: medicinSchema,
+        type: Number,
         required: true
     },
     numberOfDoses: {
-        trype: Number,
+        type: String,
         required: function () {
-            return this.medicinName > 0;
+            return this.medicineId > 0;
         }
     },
     dateOfPrescription: {
         type: Date,
+        default: Date.now,
         required: function () {
-            return this.medicinName > 0;
+            return this.medicineId > 0;
         }
     }
 });
+//     _id: {
+//         type: String,
+//         required: true,
+//         minlength: 5,
+//         maxlength: 100
+//     },
+//     doctorId: {
+//         type: doctorSchema,
+//         required: true
+//     },
+//     patientId: {
+//         type: patientSchema,
+//         required: true
+//     },
+//     medicineId: {
+//         type: medicineSchema,
+//         required: true
+//     },
+//     numberOfDoses: {
+//         trype: Number,
+//         required: function () {
+//             return this.medicineId > 0;
+//         }
+//     },
+//     dateOfPrescription: {
+//         type: Date,
+//         default: Date.now,
+//         required: function () {
+//             return this.medicineId > 0;
+//         }
+//     }
+// });
 const Prescription = mongoose.model('Prescription', prescriptionSchema);
 
 exports.Prescription = Prescription;

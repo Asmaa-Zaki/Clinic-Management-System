@@ -1,0 +1,17 @@
+<p>prescription-create works!</p>
+
+<br>
+<label style="width: 100px;">Id </label>
+<input type="text" [(ngModel)]="prescriptionService.nPrescription._id" required><br><br>
+<label style="width: 100px;">DoctorId </label>
+<input type="text" [(ngModel)]="prescriptionService.nPrescription.doctorId" required><br><br>
+<label style="width: 100px;">Patient Name </label>
+<input type="text" [(ngModel)]="prescriptionService.nPrescription.patientId" required><br><br>
+<label style="width: 100px;">Medicine Name </label>
+<input type="text" [(ngModel)]="prescriptionService.nPrescription.medicineId" required><br><br>
+<label style="width: 100px;">Doses </label>
+<input type="text" [(ngModel)]="prescriptionService.nPrescription.numberOfDoses" required=""><br><br>
+<label style="width: 100px;">Date </label>
+<input type="text" [(ngModel)]="prescriptionService.nPrescription.dateOfPrescription" required=""><br><br>
+
+<button style="margin-left: 150px; width: 75px;" class="btn btn-success" (click)="save()">Add</button>

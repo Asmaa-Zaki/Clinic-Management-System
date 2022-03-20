@@ -1,4 +1,5 @@
 const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi)
 
 module.exports = function validationAppointment(req) {
     const schema = Joi.object({

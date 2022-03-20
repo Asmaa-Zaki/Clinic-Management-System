@@ -8,16 +8,15 @@ import { Appointment } from 'src/app/Module/appointment';
   styleUrls: ['./appointment-delete.component.css']
 })
 export class AppointmentDeleteComponent implements OnInit {
-  @Input() appointment:Appointment= new Appointment(0,0,0,0,"")
-  
-  constructor(private appointmentService:AppointmentService) { }
+  @Input() appointment: Appointment = new Appointment(0, 0, 0, 0, "")
+
+  constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
   }
 
-  DeleteAppointment()
-  {
-    this.appointmentService.DeleteAppoint().subscribe((res)=>{
+  DeleteAppointment() {
+    this.appointmentService.DeleteAppoint().subscribe((res) => {
 
     })
   }
