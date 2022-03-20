@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\AngularApp",
-    "\\AngularApp\\src",
-    "\\AngularApp\\src\\app",
-    "\\AngularApp\\src\\app\\Appointment",
-    "\\AngularApp\\src\\app\\Appointment\\appointment-create",
-    "\\AngularApp\\src\\app\\Features",
-    "\\AngularApp\\src\\app\\Medicine"
+    ""
   ],
   "PreviewInSolutionExplorer": false
 }

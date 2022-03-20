@@ -1,0 +1,18 @@
+<br>
+<label style="width: 100px;">Id </label>
+<input type="text" [(ngModel)]="PatientService.nPatient._id" required><br><br>
+<label style="width: 100px;">Patient Name </label>
+<input type="text" [(ngModel)]="PatientService.nPatient.patientName" required><br><br>
+<label style="width: 100px;">SSN </label>
+<input type="text" [(ngModel)]="PatientService.nPatient.SSN" required><br><br>
+<label style="width: 100px;">Phone </label>
+<input type="text" [(ngModel)]="PatientService.nPatient.phone" required><br><br>
+<label style="width: 100px;">Addrees </label>
+<input type="text" [(ngModel)]="PatientService.nPatient.address" required><br><br>
+<label style="width: 100px;">Gender </label>
+<input type="text" [(ngModel)]="PatientService.nPatient.gender" required=""><br><br>
+<label style="width: 100px;">Insurance Id </label>
+<input type="text" [(ngModel)]="PatientService.nPatient.insuranceId" required=""><br><br>
+
+<button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>
+

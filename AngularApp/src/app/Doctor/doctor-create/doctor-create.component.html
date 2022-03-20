@@ -1,0 +1,38 @@
+<!-- <div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="col s5">
+
+                    </div>
+                    <form (click)="employeeForm()" >
+                        
+                    </form>
+                    <div class="col s7">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<br>
+<label style="width: 100px;">Id </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor._id" required><br><br>
+<label style="width: 100px;">Doctor Name </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.doctorName" required><br><br>
+<label style="width: 100px;">SSN </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.SSN" required><br><br>
+<label style="width: 100px;">Phone </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.phone" required><br><br>
+<label style="width: 100px;">Addrees </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.address" required><br><br>
+<label style="width: 100px;">Specialty </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.medicalSpecialty" required=""><br><br>
+<label style="width: 100px;">Username </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.username" required=""><br><br>
+<label style="width: 100px;">Password </label>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.password" required=""><br><br>
+
+<button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>
