@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Appointment } from '../Module/appointment';
 
 @Pipe({
-  name: 'sortAppointment'
+  name: 'sortComponent'
 })
-export class SortAppointmentPipe implements PipeTransform {
+export class SortComponentPipe implements PipeTransform {
 
-  transform(items: Appointment[], direction: string, column: string, type: string) {
+  transform(items: any, direction: string, column: string, type: string) {
     let sortedItems = [];
     sortedItems = direction === "asc" ?
       this.sortAscending(items, column, type) :

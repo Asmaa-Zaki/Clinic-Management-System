@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
 //create
 router.post('/', async (req, res) => {
     const { error } = validationMedicine(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error == true) return res.status(400).send(error.details[0].message);
 
     let med = new medicine(_.pick(req.body, ['_id', 'name', 'brand', 'description']));
     //check id if  it found or not -- هنا بشوف ال متسجل قبل كده ولا لا(id)
@@ -61,12 +61,12 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
     //--------------Check Body Request
     const { error } = validationMedicine(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error == true) return res.status(400).send(error.details[0].message);
 
     if (!req.params.id)
         return res.status(400).send("No record given with id: " + req.params.id)
 
-    var newMedicine = new medicine({
+    let newMedicine = new medicine({
         _id: req.params.id,
         name: req.body.name,
         brand: req.body.brand,
@@ -93,7 +93,7 @@ router.delete('/:id', async (req, res) => {
 
     if (!med) return res.status(404).send('The medicine with the given ID was not found.');
 
-    res.send("DELETE FROM DB\t" + med);
+    //res.send("DELETE FROM DB\t" + med);
 })
 
 module.exports = router

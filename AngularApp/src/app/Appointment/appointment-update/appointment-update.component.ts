@@ -10,7 +10,7 @@ import { Appointment } from 'src/app/Module/appointment';
 export class AppointmentUpdateComponent implements OnInit {
   @Input() appointment:Appointment= new Appointment(0,0,0,0,"")
   //@Output() cAppointment:Appointment= new Appointment(0,0,0,0,"")
-  appoint: Appointment= new Appointment(0,0,0,0,"")
+  //appoint: Appointment= new Appointment(0,0,0,0,"")
   constructor(private appointymentService: AppointmentService) { }
 
   ngOnInit(): void {

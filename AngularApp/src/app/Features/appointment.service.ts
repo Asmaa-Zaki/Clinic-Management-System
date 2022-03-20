@@ -33,6 +33,7 @@ export class AppointmentService {
   DeleteAppoint()
   {
     console.log(""+(this.baseURL)+`/${this.nAppointment._id}`)
+    console.log(this.nAppointment)
       return this.http.delete(this.baseURL+'/'+this.nAppointment._id)
       
   }
@@ -40,7 +41,7 @@ export class AppointmentService {
   EditAppoint(appoint:Appointment)
   {
     console.log(""+(this.baseURL)+`/${appoint._id}`)
-      return this.http.put(this.baseURL+`/${appoint._id}`,appoint)
+      return this.http.put(this.baseURL+`/${this.nAppointment._id}`,appoint)
       
   }
 }

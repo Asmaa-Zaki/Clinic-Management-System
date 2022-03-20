@@ -13,6 +13,7 @@ const { mongoose } = require('./db.js');
 //controller
 const appointmentController= require('./Appointment/controllers/apointmentController.js')
 const medicineController= require('./Medicine/controllers/medicineController.js')
+const employeeController= require('./Employee/controllers/employeeController.js')
 
 //call express 
 var App = express();
@@ -28,3 +29,4 @@ App.listen(3000, ()=>{
 
 App.use('/appointment', appointmentController)
 App.use('/medicine', medicineController)
+App.use('/employee',employeeController)

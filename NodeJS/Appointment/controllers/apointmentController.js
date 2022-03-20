@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
 //create
 router.post('/', async (req, res) => {
     const { error } = validationAppointment(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error == true) return res.status(400).send(error.details[0].message);
 
     let appoint = new appointment(_.pick(req.body, ['_id', 'doctorId', 'startTime', 'endTime', 'medicalSpecialty']));
     //check id if  it found or not -- هنا بشوف ال متسجل قبل كده ولا لا(id)
@@ -61,7 +61,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
     //--------------Check Body Request
     const { error } = validationAppointment(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error == true) return res.status(400).send(error.details[0].message);
 
     if (!req.params.id)
         return res.status(400).send("No record given with id: " + req.params.id)
@@ -94,7 +94,7 @@ router.delete('/:id', async (req, res) => {
 
     if (!appoint) return res.status(404).send('The genre with the given ID was not found.');
 
-    res.send("DELETE FROM DB\t" + appoint);
+   // res.send("DELETE FROM DB\t" + appoint);
 })
 
 module.exports = router

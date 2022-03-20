@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MedicineService } from 'src/app/Features/medicine.service';
 
 @Component({
   selector: 'app-medicine-create',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicineCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public medicineService: MedicineService) { }
 
   ngOnInit(): void {
+  }
+
+  save()
+  {
+    this.medicineService.AddToList().subscribe((res)=>{
+      
+    })
   }
 
 }

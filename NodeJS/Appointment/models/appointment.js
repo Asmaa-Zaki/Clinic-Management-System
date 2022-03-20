@@ -8,7 +8,7 @@ let appointment = mongoose.model('Appointment',
         doctorId: { type: Number },
         startTime: { type: Number },
         endTime: { type: Number },
-        medicalSpecialty: { type: String }
+        medicalSpecialty: { type: String },
     });
 
 //export the appointment model

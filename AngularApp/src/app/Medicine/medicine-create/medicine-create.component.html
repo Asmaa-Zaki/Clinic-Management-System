@@ -1,1 +1,11 @@
-<p>medicine-create works!</p>
+<br>
+<label style="width: 100px;">Id </label>
+<input type="text" [(ngModel)]="medicineService.nMedicine._id" required><br><br>
+<label style="width: 100px;">Name </label>
+<input type="text" [(ngModel)]="medicineService.nMedicine.name" required><br><br>
+<label style="width: 100px;">Brand </label>
+<input type="text" [(ngModel)]="medicineService.nMedicine.brand" required><br><br>
+<label style="width: 100px;">Description </label>
+<input type="text" [(ngModel)]="medicineService.nMedicine.description" required><br><br>
+<button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>
+

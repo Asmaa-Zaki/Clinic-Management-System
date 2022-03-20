@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { AppointmentService } from '../Features/appointment.service';
 
 @Pipe({
   name: 'filterbySpeciality'
