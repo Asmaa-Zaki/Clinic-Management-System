@@ -42,25 +42,12 @@ router.put('/:id', async (req, res) => {
     const { error } = validationMedicine(req.body);
     if (error == true) return res.status(400).send(error.details[0].message);
 
-    if (!req.params.id)
-        return res.status(400).send("No record given with id: " + req.params.id)
-
     let newMedicine = new medicine({
         _id: req.params.id,
         name: req.body.name,
         brand: req.body.brand,
         description: req.body.description,
-    })
-
-
-    medicine.findByIdAndUpdate(req.params.id, { $set: newMedicine }, { new: true }, (err, doc) => {
-        if (!err)
-            res.send(doc)
-        else
-            console.log("Error in Medicine Update: " + JSON.stringify(err, undefined, 2))
-    })
-    // res.send(newMedicine)
-})
+    });
 
     const med = await medicine.findByIdAndUpdate(req.params.id, { newMedicine }, { new: true });
     if (!med) return res.status(400).send('Invalid Id');

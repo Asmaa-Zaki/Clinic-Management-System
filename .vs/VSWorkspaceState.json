@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AngularApp",
+    "\\NodeJS",
+    "\\NodeJS\\Patient"
   ],
+  "SelectedNode": "\\AngularApp",
   "PreviewInSolutionExplorer": false
 }
