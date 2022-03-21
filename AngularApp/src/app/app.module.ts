@@ -30,6 +30,7 @@ import { ServiceCreateComponent } from './ClinicServices/service-create/service-
 import { ServiceDeleteComponent } from './ClinicServices/service-delete/service-delete.component';
 import { ServiceReadComponent } from './ClinicServices/service-read/service-read.component';
 import { ServiceUpdateComponent } from './ClinicServices/service-update/service-update.component'
+import {DoctorCreateComponent} from './Doctor/doctor-create/doctor-create.component'
 const routes: Routes= [
   {path:"home", component:HomeComponent},
   {path:"employee", component:EmployeeCreateComponent},
@@ -63,7 +64,8 @@ const routes: Routes= [
     ServiceCreateComponent,
     ServiceDeleteComponent,
     ServiceReadComponent,
-    ServiceUpdateComponent
+    ServiceUpdateComponent,
+    DoctorCreateComponent
   ],
   imports: [
 

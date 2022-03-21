@@ -3,7 +3,7 @@ const mongoose = require('../../db.js')
 const userSchema = mongoose.Schema({
     _id: Number,
     username: String,
-    passweord: String,
+    password: String,
     type: String
 });
 const Users = mongoose.model('Users', userSchema);

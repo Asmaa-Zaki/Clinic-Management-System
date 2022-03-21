@@ -19,7 +19,7 @@
 </div> -->
 <br>
 <label style="width: 100px;">Id </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor._id" required><br><br>
+<input type="text" [(ngModel)]="DoctorService.nDoctor._id" [(ngModel)]="userSerive.nUser._id" required><br><br>
 <label style="width: 100px;">Doctor Name </label>
 <input type="text" [(ngModel)]="DoctorService.nDoctor.doctorName" required><br><br>
 <label style="width: 100px;">SSN </label>
@@ -31,8 +31,8 @@
 <label style="width: 100px;">Specialty </label>
 <input type="text" [(ngModel)]="DoctorService.nDoctor.medicalSpecialty" required=""><br><br>
 <label style="width: 100px;">Username </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.username" required=""><br><br>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.username" [(ngModel)]="userSerive.nUser.username" required=""><br><br>
 <label style="width: 100px;">Password </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.password" required=""><br><br>
+<input type="text" [(ngModel)]="DoctorService.nDoctor.password" [(ngModel)]="userSerive.nUser.password" required=""><br><br>
 
 <button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>

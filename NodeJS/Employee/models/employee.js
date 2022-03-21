@@ -10,7 +10,8 @@ let employee = mongoose.model('Employee',
     email: {type: String},
     phone: {type: Number},
     userName: {type: String},
-    password: {type: String}
+    password: {type: String},
+    type: {type: String}
 })
 
 //export the employee model

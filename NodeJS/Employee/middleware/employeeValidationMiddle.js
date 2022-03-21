@@ -10,7 +10,8 @@ module.exports = function validationEmployee(req)
         email: Joi.string().required(),
         phone: Joi.number().required(),
         userName: Joi.string().required(),
-        password: Joi.string().required()
+        password: Joi.string().required(),
+        type: Joi.string().required()
     })
     return schema.validate(req)
 }
