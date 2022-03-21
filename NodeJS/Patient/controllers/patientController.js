@@ -10,7 +10,7 @@ const router = express.Router()
 //read
 //localhost:3000/patient/
 router.get('/', async (req, res) => {
-    const pat = await patient.find(req.patient);
+    const pat = await patient.find();
     if (pat) return res.send(pat);
     return res.status(400).send('Not Found Any Record');
     // appointment.find((err, docs) => {

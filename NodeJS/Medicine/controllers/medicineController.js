@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     const { error } = validationMedicine(req.body);
     if (error == true) return res.status(400).send(error.details[0].message);
 
-    let med = new medicine(_.pick(req.body, ['_id', 'name', 'brand', 'description']));
+    let med = new medicine(_.pick(req.body, ['_id', 'medicineName', 'brand', 'description']));
     //check id if  it found or not -- هنا بشوف ال متسجل قبل كده ولا لا(id)
     //👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯👨🏼‍🦯
     const check = await medicine.findById(req.body._id);
@@ -44,7 +44,7 @@ router.put('/:id', async (req, res) => {
 
     let newMedicine = new medicine({
         _id: req.params.id,
-        name: req.body.name,
+        medicineName: req.body.medicineName,
         brand: req.body.brand,
         description: req.body.description,
     });

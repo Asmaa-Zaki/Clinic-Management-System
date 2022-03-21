@@ -32,6 +32,7 @@ router.post('/', async (req, res) => {
     user = await user.save();
     res.send(user);
 });//End Post
+//-----------------------------------Upadet
 router.put('/:id', async (req, res) => {
     const { error } = validationuser(req.body);
     if (error) return res.status(400).send(error.details[0].message);

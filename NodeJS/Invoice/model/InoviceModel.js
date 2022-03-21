@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
-// const patientSchema = requie('../../')
-let invoiceSchema = mongoose.Schema({
+const { patientSchema } = require('../../Patient/models/patient');
+const invoiceSchema = mongoose.Schema({
     _id: {
         type: Number,
         required: true
     },
     patientId: {
-        type: Number,
-        required: true
+        type: patientSchema
     },
     taxOfBill: {
         type: Number,

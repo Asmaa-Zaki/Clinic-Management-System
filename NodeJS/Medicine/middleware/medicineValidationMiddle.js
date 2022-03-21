@@ -3,7 +3,7 @@ const Joi = require('joi');
 module.exports = function validationMedicine(req) {
     const schema = Joi.object({
         _id: Joi.number().required(),
-        name: Joi.string().required(),
+        medicineName: Joi.string().required(),
         brand: Joi.string().required(),
         description: Joi.string().required()
     });
