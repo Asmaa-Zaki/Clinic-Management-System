@@ -1,0 +1,43 @@
+<table class="table">
+    <tr>
+        <th>
+            <label>Id</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortIdAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortIdDesc()"></i>
+        </th>
+        <th>
+            <label class="fw-bold">DoctorId</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortDocIdAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortDocIdDesc()"></i>
+        </th>
+        <th>
+            <label>Name</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortNameAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortNameDesc()"></i>
+        </th>
+        <th>
+            <label>Description</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortDescAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortDescDesc()"></i>
+        </th>
+        <th>
+            <label>Price</label>
+            <i appSortParams  class="fa fa-arrow-up" (click)="sortPriceAsc()"></i>
+            <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortPriceDesc()"></i>
+        </th>
+        <th>
+            <input type="text" class="w w-75 h-25" [(ngModel)]="searchValue" placeholder="Filter by Name">
+        </th>
+    </tr>
+    <tr *ngFor="let clinicS of (clinicservService.ClinicServLists|sortComponent:direction:column:type)">
+        <td>{{clinicS._id}}</td>
+        <td>{{clinicS.doctorId}}</td>
+        <td>{{clinicS.name}}</td>
+        <td>{{clinicS.description}}</td>
+        <td>{{clinicS.price}}</td>
+        <td><app-service-update [cService]="clinicS"></app-service-update></td>
+        <td><app-service-delete [cService]="clinicS"></app-service-delete></td>
+    </tr>
+</table>
+
+<button style="margin-left: 170px;" class="btn btn-success " (click)="show()">Refresh</button>

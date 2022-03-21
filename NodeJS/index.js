@@ -1,21 +1,17 @@
 const { mongoose } = require('./db.js');
 const Doctor = require('./Doctor/controllers/doctorController');
 const Patient = require('./Patient/controllers/patientController');
-const appointmentController = require('./Appointment/controllers/apointmentController.js')
 const Prescription = require('./Prescription/controllers/prescriptionController');
 const Invoice = require('./Invoice/controller/invoiceController');
-const medicineController = require('./Medicine/controllers/medicineController.js')
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
-//mongoose
-const { mongoose } = require('./db.js');
 
 //controller
 const appointmentController= require('./Appointment/controllers/apointmentController.js')
 const medicineController= require('./Medicine/controllers/medicineController.js')
 const employeeController= require('./Employee/controllers/employeeController.js')
+const clinicServiceController= require('./ClinicService/controllers/clinicServiceController')
 
 //call express 
 var App = express();
@@ -36,3 +32,4 @@ App.use('/prescript', Prescription);
 App.use('/doctor', Doctor);
 App.use('/patient', Patient)
 App.use('/employee',employeeController)
+App.use('/clinicService', clinicServiceController)

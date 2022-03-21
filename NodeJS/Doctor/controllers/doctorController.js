@@ -26,9 +26,6 @@ router.get('/:id', async (req, res) => {
     if (!req.params.id)
         return res.status(400).send("No record given with id: " + req.params.id)
 
-    if (!req.params.id)
-        return res.status(400).send("No record given with id: " + req.params.id)
-
     const doc = await Doctor.findById(req.params.id);
 
     if (!doc) return res.status(404).send('The genre with the given ID was not found.');

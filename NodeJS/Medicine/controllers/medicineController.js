@@ -59,12 +59,10 @@ router.put('/:id', async (req, res) => {
         else
             console.log("Error in Medicine Update: " + JSON.stringify(err, undefined, 2))
     })
-    // res.send(newMedicine)
-})
 
-    const med = await medicine.findByIdAndUpdate(req.params.id, { newMedicine }, { new: true });
-    if (!med) return res.status(400).send('Invalid Id');
-    res.send("Updated \t" + med);
+    // const med = await medicine.findByIdAndUpdate(req.params.id, { newMedicine }, { new: true });
+    // if (!med) return res.status(400).send('Invalid Id');
+    // res.send("Updated \t" + med);
 });
 
 //-----------------------------------------------Delete
