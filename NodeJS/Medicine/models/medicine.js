@@ -2,12 +2,26 @@
 const mongoose = require('../../db.js')
 
 //model schema
-let medicine = mongoose.model('Medicine',
-    {
-        _id: {type: Number},
-        name: {type: String},
-        brand: {type: String},
-        description: {type: String}
-    })
+const medicineSchema = mongoose.Schema({
+    _id: {
+        type: Number,
+        required: true
+    }
+    ,
+    medicineName: {
+        type: String,
+        required: true
+    }
+    ,
+    brand: {
+        type: String
+    }
+    ,
+    description: {
+        type: String
+    }
+});
+const medicine = mongoose.model('Medicine', medicineSchema)
 //export the medicine model
-module.exports = { medicine }
+exports.medicine = medicine;
+exports.medicineSchema = medicineSchema;

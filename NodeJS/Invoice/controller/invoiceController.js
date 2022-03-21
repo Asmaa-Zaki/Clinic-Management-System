@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validationIncvoice = require('../middleware/invoiceMiddleware');
 const { Invoice } = require('../model/InoviceModel');
-//const Patient =require('');  
+const { patient } = require('../../Patient/models/patient');
 const express = require('express');
 const router = express.Router();
 
@@ -19,15 +19,18 @@ router.get('/:id', async (req, res) => {
 
 //--------------------------------------Add
 router.post('/', async (req, res) => {
-    // const patient = await Invoice.findById(req.body.patientId);
-    // if (!patient) return res.status(400).send('Invalid patient Id');
+    const pat = await patient.findById(req.body.patientId);
+    if (!pat) return res.status(400).send('Invalid patient Id');
 
     const { error } = validationIncvoice(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     console.log("enter");
     let invoice = new Invoice({
         _id: req.body._id,
-        patientId: req.body.patientId,
+        patientId: {
+            _id: pat._id,
+            patientName: pat.patientName
+        },
         taxOfBill: req.body.taxOfBill,
         dateOfBill: req.body.dateOfBill
     });
@@ -39,15 +42,18 @@ router.post('/', async (req, res) => {
 
 //--------------------------------------Update
 router.put('/:id', async (req, res) => {
-    // const patient = await Patient.findById(req.body.patientId);
-    // if (!patient) return res.status(400).send('Invalid Id');
+    const pat = await patient.findById(req.body.patientId);
+    if (!pat) return res.status(400).send('Invalid Id');
 
     const { error } = validationIncvoice(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
     const invoice = await Invoice.findByIdAndUpdate(req.params.id, {
         _id: req.body._id,
-        patientId: req.body.patientId,
+        patientId: {
+            _id: pat._id,
+            patientName: pat.patientName
+        },
         taxOfBill: req.body.taxOfBill,
         dateOfBill: req.body.dateOfBill
     }, { new: true });
