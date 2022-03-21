@@ -47,11 +47,19 @@ router.put('/:id', async (req, res) => {
         medicineName: req.body.medicineName,
         brand: req.body.brand,
         description: req.body.description,
-    });
+    })
 
-    const med = await medicine.findByIdAndUpdate(req.params.id, { newMedicine }, { new: true });
-    if (!med) return res.status(400).send('Invalid Id');
-    res.send("Updated \t" + med);
+
+    medicine.findByIdAndUpdate(req.params.id, { $set: newMedicine }, { new: true }, (err, doc) => {
+        if (!err)
+            res.send(doc)
+        else
+            console.log("Error in Medicine Update: " + JSON.stringify(err, undefined, 2))
+    })
+
+    // const med = await medicine.findByIdAndUpdate(req.params.id, { newMedicine }, { new: true });
+    // if (!med) return res.status(400).send('Invalid Id');
+    // res.send("Updated \t" + med);
 });
 
 //-----------------------------------------------Delete

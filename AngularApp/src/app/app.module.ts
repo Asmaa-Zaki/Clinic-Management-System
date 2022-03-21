@@ -25,7 +25,11 @@ import { EmployeeUpdateComponent } from './Employee/employee-update/employee-upd
 import { FilterEmployeeNamePipe } from './pipes/filter-employee-name.pipe';
 import { HomeComponent } from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import { ErrorComponent } from './error/error.component'
+import { ErrorComponent } from './error/error.component';
+import { ServiceCreateComponent } from './ClinicServices/service-create/service-create.component';
+import { ServiceDeleteComponent } from './ClinicServices/service-delete/service-delete.component';
+import { ServiceReadComponent } from './ClinicServices/service-read/service-read.component';
+import { ServiceUpdateComponent } from './ClinicServices/service-update/service-update.component'
 const routes: Routes= [
   {path:"home", component:HomeComponent},
   {path:"employee", component:EmployeeCreateComponent},
@@ -55,7 +59,11 @@ const routes: Routes= [
     FilterEmployeeNamePipe,
     HomeComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    ServiceCreateComponent,
+    ServiceDeleteComponent,
+    ServiceReadComponent,
+    ServiceUpdateComponent
   ],
   imports: [
 

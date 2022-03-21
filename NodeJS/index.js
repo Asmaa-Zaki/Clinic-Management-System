@@ -7,12 +7,10 @@ const Invoice = require('./Invoice/controller/invoiceController');
 const medicineController = require('./Medicine/controllers/medicineController.js');
 const userController = require('./Users/controllers/userController');
 const employeeController = require('./Employee/controllers/employeeController.js')
+const clinicServiceController = require('./ClinicService/controllers/clinicServiceController')
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
-// //mongoose
-// const { mongoose } = require('./db.js');
 
 //controller
 
@@ -36,3 +34,4 @@ App.use('/doctor', doctorController);
 App.use('/patient', patientController)
 App.use('/employee', employeeController);
 App.use('/users', userController);
+App.use('/clinicService', clinicServiceController)

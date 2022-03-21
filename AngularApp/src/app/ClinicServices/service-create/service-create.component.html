@@ -1,0 +1,13 @@
+<br>
+<label style="width: 100px;">Id </label>
+<input type="text" [(ngModel)]="clinicSerService.nClinicServ._id" required><br><br>
+<label style="width: 100px;">DoctorId </label>
+<input type="text" [(ngModel)]="clinicSerService.nClinicServ.doctorId" required><br><br>
+<label style="width: 100px;">Name </label>
+<input type="text" [(ngModel)]="clinicSerService.nClinicServ.name" required><br><br>
+<label style="width: 100px;">Description </label>
+<input type="text" [(ngModel)]="clinicSerService.nClinicServ.description" required><br><br>
+<label style="width: 100px;">Price</label>
+<input type="text" [(ngModel)]="clinicSerService.nClinicServ.price" required><br><br>
+<button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>
+
