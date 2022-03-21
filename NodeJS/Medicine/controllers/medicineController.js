@@ -42,9 +42,6 @@ router.put('/:id', async (req, res) => {
     const { error } = validationMedicine(req.body);
     if (error == true) return res.status(400).send(error.details[0].message);
 
-    if (!req.params.id)
-        return res.status(400).send("No record given with id: " + req.params.id)
-
     let newMedicine = new medicine({
         _id: req.params.id,
         name: req.body.name,

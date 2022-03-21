@@ -2,9 +2,9 @@ const validationPatient = require('../middleware/patientValidationMiddle');
 //const validationMedicine = require('../middleware/medicineValidationMiddle');
 const _ = require('lodash');
 const bcrypt = require('bcrypt');
-var { patient } = require('../models/patient');
-var express = require('express');
-var router = express.Router()
+const { patient } = require('../models/patient');
+const express = require('express');
+const router = express.Router()
 
 //-------------------------------------------Get List
 //read

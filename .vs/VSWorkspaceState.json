@@ -2,15 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\AngularApp",
-    "\\AngularApp\\src",
-    "\\AngularApp\\src\\app",
-    "\\AngularApp\\src\\app\\Appointment",
     "\\NodeJS",
-    "\\NodeJS\\Doctor",
-    "\\NodeJS\\Doctor\\controllers",
-    "\\NodeJS\\Medicine",
-    "\\NodeJS\\Medicine\\controllers"
+    "\\NodeJS\\Patient"
   ],
-  "SelectedNode": "\\NodeJS\\index.js",
+  "SelectedNode": "\\AngularApp",
   "PreviewInSolutionExplorer": false
 }
