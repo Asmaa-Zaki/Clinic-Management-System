@@ -8,9 +8,9 @@ const router = express.Router();
 
 //-------------------------Get List
 router.get('/', async (req, res) => {
-    const user = await Users.find(req.Users);
+    const user = await Users.find().select('_id type');
     if (!user) return res.status(400).send('Not found any row');
-    return res.send(user);
+    res.send(user);
 });//end Get
 
 //-------------------------------Get By Id
@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
 //-------------------------------Post
 router.post('/', async (req, res) => {
     const { error } = validationuser(req.body);
-    if (error== true) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send(error.details[0].message);
 
     let user = new Users(_.pick(req.body, ['_id', 'username', 'password', 'type']));
     const check = await Users.findById(req.body._id);
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 //-----------------------------------Upadet
 router.put('/:id', async (req, res) => {
     const { error } = validationuser(req.body);
-    if (error== true) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send(error.details[0].message);
     // const check = await Users.findById(req.body._id);
     // if (check) return res.status(400).send('Invalid Id!');
 

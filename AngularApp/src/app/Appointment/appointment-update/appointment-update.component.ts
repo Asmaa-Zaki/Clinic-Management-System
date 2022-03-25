@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { AppointmentService } from 'src/app/Features/appointment.service';
-import { Appointment } from 'src/app/Models/appointment';
+import { Appointment } from 'src/app/Module/appointment';
 
 @Component({
   selector: 'app-appointment-update',
@@ -22,10 +22,10 @@ export class AppointmentUpdateComponent implements OnInit {
     this.appointymentService.nAppointment=this.appointment
   }
 
-  SaveAppoint(app:Appointment)
+  SaveAppoint()
   {
-    this.appointymentService.EditAppoint(app).subscribe((res)=>{
-      alert("updated")
-    },(error)=>alert("not exist"))
+    this.appointymentService.EditAppoint(this.appointymentService.nAppointment).subscribe((res)=>{
+
+    })
   }
 }

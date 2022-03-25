@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import {Patient} from '../Models/patient'
+import {Patient} from '../Module/patient'
 import { AppComponent } from '../app.component';
 
 @Injectable({
@@ -26,10 +26,10 @@ export class PatientService {
       return this.http.get(this.baseURL)
   }
 
-  DeletePat(pat:Patient)
+  DeletePat()
   {
-    console.log(""+(this.baseURL)+`/${pat._id}`)
-      return this.http.delete(this.baseURL+'/'+pat._id)
+    console.log(""+(this.baseURL)+`/${this.nPatient._id}`)
+      return this.http.delete(this.baseURL+'/'+this.nPatient._id)
       
   }
 
@@ -37,5 +37,6 @@ export class PatientService {
   {
     console.log(""+(this.baseURL)+`/${pat._id}`)
       return this.http.put(this.baseURL+`/${pat._id}`,pat)
+      
   } 
 }

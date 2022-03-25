@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/Features/doctor.service';
-import { Doctor } from 'src/app/Models/doctor';
+import { Doctor } from 'src/app/Module/doctor';
 
 
 @Component({
@@ -19,8 +19,8 @@ export class DoctorDeleteComponent implements OnInit {
 
   DeleteDoctor()
   {
-    this.doctorService.DeleteDoc(this.doctor).subscribe((res)=>{
-      alert("Doctor with Id: "+this.doctor._id+" Deleted")
+    this.doctorService.DeleteDoc().subscribe((res)=>{
+
     })
   }
 

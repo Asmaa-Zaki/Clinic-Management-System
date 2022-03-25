@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentService } from 'src/app/Features/appointment.service';
-import { Appointment } from 'src/app/Models/appointment';
+import { Appointment } from 'src/app/Module/appointment';
 
 @Component({
   selector: 'app-appointment-delete',
@@ -16,8 +16,8 @@ export class AppointmentDeleteComponent implements OnInit {
   }
 
   DeleteAppointment() {
-    this.appointmentService.DeleteAppoint(this.appointment).subscribe((res) => {
-      alert("Appointment with Id: "+this.appointment._id+" Deleted")
+    this.appointmentService.DeleteAppoint().subscribe((res) => {
+
     })
   }
 

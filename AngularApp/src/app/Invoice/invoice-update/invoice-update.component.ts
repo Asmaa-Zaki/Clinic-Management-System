@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Invoice } from '../../Models/invoice';
+import { Invoice } from './../../Module/invoice';
 import { InvoiceService } from './../../Features/invoice.service';
 
 @Component({
@@ -19,9 +19,8 @@ export class InvoiceUpdateComponent implements OnInit {
     console.log(this.invoice);
     this.invoiceService.nInvoice = this.invoice
   }
-  SaveInvoice(inv:Invoice) {
-    this.invoiceService.EditInvoice(inv).subscribe((res) => {
-      alert("updated")
-    },(error)=>alert("not exist"))
+  SaveInvoice() {
+    this.invoiceService.EditInvoice(this.invoiceService.nInvoice).subscribe((res) => {
+    })
   }
 }

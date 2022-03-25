@@ -1,9 +1,4 @@
 const { mongoose } = require('./db.js');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-//controller
 const doctorController = require('./Doctor/controllers/doctorController');
 const patientController = require('./Patient/controllers/patientController');
 const appointmentController = require('./Appointment/controllers/apointmentController.js')
@@ -13,6 +8,11 @@ const medicineController = require('./Medicine/controllers/medicineController.js
 const userController = require('./Users/controllers/userController');
 const employeeController = require('./Employee/controllers/employeeController.js')
 const clinicServiceController = require('./ClinicService/controllers/clinicServiceController')
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+//controller
 
 //call express 
 var App = express();

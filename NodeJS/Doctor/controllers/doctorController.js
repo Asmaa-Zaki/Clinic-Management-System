@@ -56,7 +56,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
     //--------------Check Body Request
     const { error } = validationDoctor(req.body);
-    if (error==true) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send(error.details[0].message);
 
     if (!req.params.id)
         return res.status(400).send("No record given with id: " + req.params.id)

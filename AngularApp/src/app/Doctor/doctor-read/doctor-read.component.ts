@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Doctor } from 'src/app/Models/doctor';
+import { Doctor } from 'src/app/Module/doctor';
 import { DoctorService } from '../../Features/doctor.service'
 
 @Component({

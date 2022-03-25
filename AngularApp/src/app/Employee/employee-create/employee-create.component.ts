@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DoctorUpdateComponent } from 'src/app/Doctor/doctor-update/doctor-update.component';
+import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/Features/employee.service';
 import { UsersService } from 'src/app/Features/users.service';
-import { Employee } from 'src/app/Models/employee';
-import { NavbarComponent } from 'src/app/Core/navbar/navbar.component';
-import { EmployeeUpdateComponent } from '../employee-update/employee-update.component';
 
 @Component({
   selector: 'app-employee-create',
@@ -14,41 +10,19 @@ import { EmployeeUpdateComponent } from '../employee-update/employee-update.comp
 })
 export class EmployeeCreateComponent implements OnInit {
 
-  constructor(public employeeService: EmployeeService, public usersSer:UsersService ,public router: Router, public ar: ActivatedRoute) { }
+  constructor(public employeeService: EmployeeService, public usersSer:UsersService ,public router: Router) { }
 
-  nEmp?: Employee= new Employee(0, "", "", "", 0, "", "", "")
-  private updat:EmployeeUpdateComponent= new EmployeeUpdateComponent(this.employeeService);
-  
   ngOnInit(): void {
-    this.ar.params.subscribe((r)=>{
-      this.nEmp=this.employeeService.EmployeeList.find((emp)=>{
-        return emp._id== r['id']
-      })
-     if(this.nEmp!= undefined)
-     {
-       this.employeeService.nEmployee=this.nEmp
-     }
-    })
   }
 
   save()
   {
-      this.employeeService.AddToList().subscribe((res)=>{
-        this.usersSer.AddToList().subscribe((res)=>{
-          this.router.navigate(['admin/employeeList'])
-          alert("employee added")
-          console.log(this.employeeService.nEmployee?.type)
-        })
-      },(error)=>{alert("this Id already exist")})
-  }
-
-  update()
-  {
-    if(this.nEmp!= undefined)
-    {
-      this.updat.SaveEmp(this.nEmp)
-      this.router.navigate(['admin/employeeList'])
-    }
+    this.employeeService.AddToList().subscribe((res)=>{
+      this.usersSer.AddToList().subscribe((res)=>{
+        this.router.navigate(['employeeList'])
+        console.log(this.employeeService.nEmployee.type)
+      })
+    })
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Appointment } from 'src/app/Models/appointment';
+import { Appointment } from 'src/app/Module/appointment';
 import { AppointmentService } from '../../Features/appointment.service'
 
 @Component({

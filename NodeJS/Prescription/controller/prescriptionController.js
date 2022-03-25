@@ -21,11 +21,9 @@ router.get('/:id', async (req, res) => {
     if (!prescript) return res.status.apply(400).send('Not Found');
     res.send(prescript);
 })
-
-//-----------------------------------------------------
 router.post('/', async (req, res) => {
     const { error } = validationPrescription(req.body);
-    if (error== true) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send(error.details[0].message);
     console.log("haha");
     const doctor = await Doctor.findById(req.body.doctorId);
     if (!doctor) return res.status(400).send('Invalid doctor Id');
@@ -58,7 +56,7 @@ router.post('/', async (req, res) => {
 //---------------------------------------------Update
 router.put('/:id', async (req, res) => {
     const { error } = validationPrescription(req.body);
-    if (error== true) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send(error.details[0].message);
     console.log("haha");
     const doctor = await Doctor.findById(req.body.doctorId);
     if (!doctor) return res.status(400).send('Invalid doctor Id');
@@ -87,13 +85,13 @@ router.put('/:id', async (req, res) => {
         },
         { new: true });
     if (!prescript) return res.status(400).send('Invalid Id');
-    res.send({'Updated\t' : prescript});
+    res.send('Updated\t' + prescript);
 });// End Update
 //---------------------------------------------Delete
 router.delete('/:id', async (req, res) => {
     const prescript = await Prescription.findByIdAndRemove(req.params.id);
     if (!prescript) return res.status(400).send('Invalid Id');
-    res.send({'Deleted\t' : prescript});
+    res.send('Deleted\t' + prescript);
 });// End Deleted
 
 module.exports = router;

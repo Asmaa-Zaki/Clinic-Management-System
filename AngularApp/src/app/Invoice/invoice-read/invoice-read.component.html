@@ -20,17 +20,21 @@
             <!-- <i appSortParams class="fa fa-arrow-up" (click)="sortdateAsc()"></i>
             <i appSortParams class="fa fa-arrow-down sorting" (click)="sortdateDesc()"></i> -->
         </th>
-        <th></th>
-        <th>
-            <a (click)="show()"><i class="fa fa-refresh refresh" aria-hidden="true" style="cursor: pointer;"></i></a>
-        </th>
     </tr>
     <tr *ngFor="let invoice of (InvoiceService.InvoiceList)">
         <td>{{invoice._id}}</td>
         <td>{{invoice.patientId}}</td>
         <td>{{invoice.taxOfBill}}</td>
-        <td>{{invoice.dateOfBill|date}}</td>
-        <a [routerLink]="['edit',invoice._id]" ><i class="fa fa-edit" aria-hidden="true" style="font-weight: bold; font-size: larger;"></i></a>
-        <td><app-invoice-delete [invoice]="invoice"></app-invoice-delete></td>
+        <td>{{invoice.dateOfBill}}</td>
+        <td>
+            <app-invoice-update [invoice]="invoice">
+            </app-invoice-update>
+        </td>
+
+        <td>
+            <app-invoice-delete [invoice]="invoice"></app-invoice-delete>
+        </td>
     </tr>
 </table>
+
+<button style="margin-left: 170px;" class="btn btn-success " (click)="show()">Refresh</button>

@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
 //create
 router.post('/', async (req, res) => {
     const { error } = validationClinicService(req.body);
-    if (error== true) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send(error.details[0].message);
 
     let clinicServ = new clinicService(_.pick(req.body, ['_id', 'doctorId', 'name', 'description','price']));
     //check id if  it found or not -- هنا بشوف ال متسجل قبل كده ولا لا(id)

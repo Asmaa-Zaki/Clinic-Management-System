@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Invoice } from 'src/app/Models/invoice';
+import { Invoice } from 'src/app/Module/invoice';
 import { InvoiceService } from '../../Features/invoice.service';
 @Component({
   selector: 'app-invoice-read',

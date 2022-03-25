@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/Features/patient.service';
-import { Patient } from 'src/app/Models/patient';
+import { Patient } from 'src/app/Module/patient';
 
 @Component({
   selector: 'app-patient-update',
@@ -20,11 +20,11 @@ export class PatientUpdateComponent implements OnInit {
     this.patientService.nPatient=this.patient
   }
 
-  SavePat(pat:Patient)
+  SavePat()
   {
-    this.patientService.EditPat(pat).subscribe((res)=>{
-      alert("updated")
-    }, (error)=>alert("not exist"))
+    this.patientService.EditPat(this.patientService.nPatient).subscribe((res)=>{
+
+    })
   }
 
 }

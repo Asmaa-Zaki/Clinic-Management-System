@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { AppComponent } from '../app.component';
-import { Invoice } from '../Models/invoice';
+import { Invoice } from './../Module/invoice';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +23,10 @@ export class InvoiceService {
     return this.http.get(this.baseURL)
   }
 
-  DeleteInvoice(inv: Invoice) {
-    return this.http.delete(this.baseURL + '/' + inv._id)
+  DeleteInvoice() {
+    console.log("" + (this.baseURL) + `/${this.nInvoice._id}`)
+    return this.http.delete(this.baseURL + '/' + this.nInvoice._id)
+
   }
 
   EditInvoice(invoice: Invoice) {

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Prescription } from '../../Models/prescription';
-import { PrescriptionUpdateComponent } from '../prescription-update/prescription-update.component';
+import { Prescription } from './../../Module/prescription';
 import { PrescriptionService } from './../../Features/prescription.service';
 
 @Component({
@@ -11,33 +9,13 @@ import { PrescriptionService } from './../../Features/prescription.service';
 })
 export class PrescriptionCreateComponent implements OnInit {
 
-  constructor(public prescriptionService: PrescriptionService,public router: Router, public ar: ActivatedRoute) { }
-  nPres?: Prescription= new Prescription(0, 0, 0, 0, "", new Date())
-  private updat: PrescriptionUpdateComponent=  new PrescriptionUpdateComponent(this.prescriptionService)
+  constructor(public prescriptionService: PrescriptionService) { }
 
   ngOnInit(): void {
-    this.ar.params.subscribe((r)=>{
-      this.nPres= this.prescriptionService.PrescriptList.find((pres)=>{
-        return pres._id == r['id']
-      })
-      if(this.nPres != undefined)
-      {
-        this.prescriptionService.nPrescription = this.nPres
-      }
-    })
   }
   save() {
     this.prescriptionService.AddToList().subscribe((res) => {
-      this.router.navigate(['admin/prescriptionList'])
-    }, (error)=> alert(`this id ${this.prescriptionService.nPrescription._id} already exist`))
-  }
 
-  update()
-  {
-  if(this.nPres != undefined)
-  {
-    this.updat.SavePrescript(this.nPres)
-    this.router.navigate(['admin/prescriptionList'])
-  }
+    })
   }
 }

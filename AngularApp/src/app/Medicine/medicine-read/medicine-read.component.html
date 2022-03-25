@@ -23,16 +23,15 @@
         <th>
             <input type="text" class="w w-75 h-25" [(ngModel)]="searchValue" placeholder="Filter by Name">
         </th>
-        <th>
-            <a (click)="show()"><i class="fa fa-refresh refresh" aria-hidden="true" style="cursor: pointer;"></i></a>
-        </th>
     </tr>
     <tr *ngFor="let medicin of (medicineService.MedicineList|sortComponent:direction:column:type|filterMedicineName:searchValue)">
         <td>{{medicin._id}}</td>
-        <td>{{medicin.medicineName}}</td>
+        <td>{{medicin.name}}</td>
         <td>{{medicin.brand}}</td>
         <td>{{medicin.description}}</td>
-        <a [routerLink]="['edit',medicin._id]" ><i class="fa fa-edit" aria-hidden="true" style="font-weight: bold; font-size: larger;"></i></a>
+        <td><app-medicine-update [medicinee]="medicin"></app-medicine-update></td>
         <td><app-medicine-delete [medicine]="medicin"></app-medicine-delete></td>
     </tr>
 </table>
+
+<button style="margin-left: 170px;" class="btn btn-success " (click)="show()">Refresh</button>

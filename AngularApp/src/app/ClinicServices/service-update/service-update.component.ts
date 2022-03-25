@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ClinicServService } from 'src/app/Features/clinic-serv.service';
-import { ClinicServ } from 'src/app/Models/clinic-serv';
+import { ClinicServ } from 'src/app/Module/clinic-serv';
 
 @Component({
   selector: 'app-service-update',
@@ -20,10 +20,10 @@ export class ServiceUpdateComponent implements OnInit {
     this.clinicServ.nClinicServ= this.cService
   }
 
-  SavecService(ser:ClinicServ)
+  SavecService()
   {
-    this.clinicServ.EditClinicServ(ser).subscribe((res)=>{
-      alert("updated")
-    },(error)=>alert("not exist"))
+    this.clinicServ.EditClinicServ().subscribe((res)=>{
+      
+    })
   }
 }

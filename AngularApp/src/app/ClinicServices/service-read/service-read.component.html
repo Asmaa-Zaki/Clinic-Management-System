@@ -28,9 +28,6 @@
         <th>
             <input type="text" class="w w-75 h-25" [(ngModel)]="searchValue" placeholder="Filter by Name">
         </th>
-        <th>
-            <a (click)="show()"><i class="fa fa-refresh refresh" aria-hidden="true" style="cursor: pointer;"></i></a>
-        </th>
     </tr>
     <tr *ngFor="let clinicS of (clinicservService.ClinicServLists|sortComponent:direction:column:type)">
         <td>{{clinicS._id}}</td>
@@ -38,7 +35,9 @@
         <td>{{clinicS.name}}</td>
         <td>{{clinicS.description}}</td>
         <td>{{clinicS.price}}</td>
-        <a [routerLink]="['edit',clinicS._id]" ><i class="fa fa-edit" aria-hidden="true" style="font-weight: bold; font-size: larger;"></i></a>
+        <td><app-service-update [cService]="clinicS"></app-service-update></td>
         <td><app-service-delete [cService]="clinicS"></app-service-delete></td>
     </tr>
 </table>
+
+<button style="margin-left: 170px;" class="btn btn-success " (click)="show()">Refresh</button>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Prescription } from '../../Models/prescription';
+import { Prescription } from './../../Module/prescription';
 import { PrescriptionService } from './../../Features/prescription.service';
 
 @Component({
@@ -14,15 +14,14 @@ export class PrescriptionUpdateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   EditPrescript() {
     console.log(this.prescription)
     this.prescriptionService.nPrescription = this.prescription
   }
 
-  SavePrescript(pres: Prescription) {
-    this.prescriptionService.Editprescript(pres).subscribe((res) => {
-      alert(`Prescription with id ${this.prescription._id} updated`)
-    },(error)=>alert(`Prescription with id ${this.prescription._id} not exist`))
+  SavePrescript() {
+    this.prescriptionService.Editprescript(this.prescriptionService.nPrescription).subscribe((res) => {
+
+    })
   }
 }
