@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MedicineService } from 'src/app/Features/medicine.service';
-import { Medicine } from 'src/app/Module/medicine';
+import { Medicine } from 'src/app/Models/medicine';
 
 @Component({
   selector: 'app-medicine-delete',
@@ -17,9 +17,9 @@ export class MedicineDeleteComponent implements OnInit {
 
   DeleteMedicine()
   {
-    this.medService.DeleteMedicine().subscribe((res)=>{
-      
-    })
+    this.medService.DeleteMedicine(this.medicine).subscribe((res)=>{
+      alert("Medicine with Id: "+this.medicine._id+" Deleted")
+    },(error)=>alert(`Medicine with id ${this.medicine._id} not exist to be deleted`))
   }
 
 }

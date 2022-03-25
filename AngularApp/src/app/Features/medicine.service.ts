@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Medicine } from '../Module/medicine';
+import { Medicine } from '../Models/medicine';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +27,9 @@ export class MedicineService {
     return this.http.get(this.baseURL)
   }
 
-  DeleteMedicine()
+  DeleteMedicine(med:Medicine)
   {
-    return this.http.delete(this.baseURL+'/'+this.nMedicine._id)
+    return this.http.delete(this.baseURL+'/'+med._id)
   }
 
   EditMedicine(med: Medicine)

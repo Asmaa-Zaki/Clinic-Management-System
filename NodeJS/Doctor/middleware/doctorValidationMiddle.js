@@ -13,7 +13,7 @@ module.exports = function validationDoctor(req) {
             .min(3)
             .max(30)
             .required(),
-        password: Joi.string().min(10)
+        password: Joi.string().min(3)
             .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
         //,repeat_password: Joi.ref('password')
     });

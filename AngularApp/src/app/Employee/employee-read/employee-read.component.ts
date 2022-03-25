@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/Features/employee.service';
-import { Employee } from 'src/app/Module/employee';
+import { Employee } from 'src/app/Models/employee';
+import { NavbarComponent } from 'src/app/Core/navbar/navbar.component';
+
 
 @Component({
   selector: 'app-employee-read',

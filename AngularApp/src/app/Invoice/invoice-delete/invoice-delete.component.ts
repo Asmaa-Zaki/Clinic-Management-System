@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Invoice } from './../../Module/invoice';
+import { Invoice } from '../../Models/invoice';
 import { InvoiceService } from 'src/app/Features/invoice.service';
 
 @Component({
@@ -15,8 +15,8 @@ export class InvoiceDeleteComponent implements OnInit {
   }
 
   DeleteInvoice() {
-    this.InvoiceService.DeleteInvoice().subscribe((res) => {
-
-    })
+    this.InvoiceService.DeleteInvoice(this.invoice).subscribe((res) => {
+      alert(`Invoice with Id ${this.invoice._id} deleted`)
+    },(error)=> alert(`Invoice with id ${this.invoice._id} not exist`))
   }
 }

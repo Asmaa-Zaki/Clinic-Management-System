@@ -1,7 +1,7 @@
 import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { Appointment } from '../Module/appointment'
+import { Appointment } from '../Models/appointment'
 import { AppComponent } from '../app.component';
 
 @Injectable({
@@ -28,18 +28,15 @@ export class AppointmentService {
     return this.http.get(this.baseURL)
   }
 
-  DeleteAppoint()
+  DeleteAppoint(appoint:Appointment)
   {
-    console.log(""+(this.baseURL)+`/${this.nAppointment._id}`)
-    console.log(this.nAppointment)
-      return this.http.delete(this.baseURL+'/'+this.nAppointment._id)
-      
+    return this.http.delete(this.baseURL+'/'+appoint._id) 
   }
 
   EditAppoint(appoint:Appointment)
   {
     console.log(""+(this.baseURL)+`/${appoint._id}`)
-      return this.http.put(this.baseURL+`/${this.nAppointment._id}`,appoint)
+      return this.http.put(this.baseURL+`/${appoint._id}`,appoint)
       
   }
 }

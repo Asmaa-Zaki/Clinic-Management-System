@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrescriptionService } from './../../Features/prescription.service';
-import { Prescription } from './../../Module/prescription';
+import { Prescription } from '../../Models/prescription';
 
 @Component({
   selector: 'app-prescription-read',

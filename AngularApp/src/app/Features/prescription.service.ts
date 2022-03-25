@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Prescription } from './../Module/prescription';
+import { Prescription } from '../Models/prescription';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrescriptionService {
-  nPrescription: Prescription = new Prescription(0, 0, 0, 0, "", new Date('M/d/yy, h:mm a'));
+  nPrescription: Prescription = new Prescription(0, 0, 0, 0, "", new Date());
   readonly baseURL = 'http://localhost:3000/prescript'
 
   constructor(private http: HttpClient) { }
@@ -20,10 +20,8 @@ export class PrescriptionService {
     return this.http.get(this.baseURL)
   }
 
-  Deleteprescript() {
-    console.log("" + (this.baseURL) + `/${this.nPrescription._id}`)
-    return this.http.delete(this.baseURL + '/' + this.nPrescription._id)
-
+  Deleteprescript(pres:Prescription) {
+   return this.http.delete(this.baseURL + '/' + pres._id)
   }
 
   Editprescript(prescript: Prescription) {

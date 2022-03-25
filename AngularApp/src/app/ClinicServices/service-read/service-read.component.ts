@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClinicServService } from 'src/app/Features/clinic-serv.service';
-import { ClinicServ } from 'src/app/Module/clinic-serv';
+import { ClinicServ } from 'src/app/Models/clinic-serv';
 
 @Component({
   selector: 'app-service-read',

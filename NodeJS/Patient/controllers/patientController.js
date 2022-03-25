@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 //create
 router.post('/', async (req, res) => {
     const { error } = validationPatient(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error== true) return res.status(400).send(error.details[0].message);
 
     let pat = new patient(_.pick(req.body, ['_id', 'patientName', 'SSN', 'phone',
         'address', 'gender', 'insuranceId']));
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
     //--------------Check Body Request
     const { error } = validationPatient(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error==true) return res.status(400).send(error.details[0].message);
 
     if (!req.params.id)
         return res.status(400).send("No record given with id: " + req.params.id)
@@ -94,7 +94,7 @@ router.delete('/:id', async (req, res) => {
 
     if (!pat) return res.status(404).send('The genre with the given ID was not found.');
 
-    res.send("DELETE FROM DB\t" + pat);
+    res.send({"DELETE FROM DB\t": pat});
 })
 
 module.exports = router

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MedicineService } from 'src/app/Features/medicine.service';
-import { Medicine } from 'src/app/Module/medicine';
+import { Medicine } from 'src/app/Models/medicine';
 
 @Component({
   selector: 'app-medicine-update',
@@ -20,10 +20,11 @@ export class MedicineUpdateComponent implements OnInit {
     this.medService.nMedicine=this.medicinee
   }
 
-  SaveMedicine()
+  SaveMedicine(med:Medicine)
   {
-    this.medService.EditMedicine(this.medService.nMedicine).subscribe((res)=>{
-    })
+    this.medService.EditMedicine(med).subscribe((res)=>{
+      alert("updated")
+    },(error)=>alert(error))
   }
 
 }

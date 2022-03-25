@@ -68,7 +68,7 @@ router.delete('/:id', async (req, res) => {
 
     if (!med) return res.status(404).send('The medicine with the given ID was not found.');
 
-    //res.send("DELETE FROM DB\t" + med);
+    res.send({"DELETE FROM DB\t" : med});
 })
 
 module.exports = router

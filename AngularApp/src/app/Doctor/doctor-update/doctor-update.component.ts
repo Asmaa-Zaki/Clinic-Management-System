@@ -1,6 +1,6 @@
 import { Component,Input, OnInit, Output } from '@angular/core';
 import { DoctorService } from 'src/app/Features/doctor.service';
-import { Doctor } from 'src/app/Module/doctor';
+import { Doctor } from 'src/app/Models/doctor';
 
 @Component({
   selector: 'app-doctor-update',
@@ -21,11 +21,10 @@ export class DoctorUpdateComponent implements OnInit {
     this.doctorService.nDoctor=this.doctor
   }
 
-  SaveDoc()
+  SaveDoc(doc:Doctor)
   {
-    this.doctorService.EditDoc(this.doctorService.nDoctor).subscribe((res)=>{
-
-    })
+    this.doctorService.EditDoc(doc).subscribe((res)=>{
+      alert("updated")
+    },(error)=>alert("not exist"))
   }
-
 }

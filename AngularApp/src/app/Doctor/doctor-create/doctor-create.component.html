@@ -17,22 +17,26 @@
         </div>
     </div>
 </div> -->
+<div>
 <br>
-<label style="width: 100px;">Id </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor._id" [(ngModel)]="userSerive.nUser._id" required><br><br>
-<label style="width: 100px;">Doctor Name </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.doctorName" required><br><br>
-<label style="width: 100px;">SSN </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.SSN" required><br><br>
-<label style="width: 100px;">Phone </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.phone" required><br><br>
-<label style="width: 100px;">Addrees </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.address" required><br><br>
-<label style="width: 100px;">Specialty </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.medicalSpecialty" required=""><br><br>
-<label style="width: 100px;">Username </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.username" [(ngModel)]="userSerive.nUser.username" required=""><br><br>
-<label style="width: 100px;">Password </label>
-<input type="text" [(ngModel)]="DoctorService.nDoctor.password" [(ngModel)]="userSerive.nUser.password" required=""><br><br>
-
-<button style="margin-left: 150px;" class="btn btn-success" (click)="save()">Add</button>
+<form #form="ngForm">
+<label style="width: 120px;">Id </label>
+<input name="id" type="text" [(ngModel)]="DoctorService.nDoctor._id" [(ngModel)]="userSerive.nUser._id" required><br><br>
+<label style="width: 120px;">Doctor Name </label>
+<input name="doctorName" type="text" [(ngModel)]="DoctorService.nDoctor.doctorName" required><br><br>
+<label style="width: 120px;">SSN </label>
+<input name="SSN" type="text" [(ngModel)]="DoctorService.nDoctor.SSN" required><br><br>
+<label style="width: 120px;">Phone </label>
+<input name="phone" type="text" [(ngModel)]="DoctorService.nDoctor.phone" required><br><br>
+<label style="width: 120px;">Addrees </label>
+<input name="address" type="text" [(ngModel)]="DoctorService.nDoctor.address" required><br><br>
+<label style="width: 120px;">Specialty </label>
+<input name="medical" type="text" [(ngModel)]="DoctorService.nDoctor.medicalSpecialty" required><br><br>
+<label style="width: 120px;">Username </label>
+<input name="username" type="text" [(ngModel)]="DoctorService.nDoctor.username" [(ngModel)]="userSerive.nUser.username" required><br><br>
+<label style="width: 120px;">Password </label>
+<input name="password" type="text" [(ngModel)]="DoctorService.nDoctor.password" [(ngModel)]="userSerive.nUser.password" required><br><br>
+<input type="button" style="margin-left: 40%;" [disabled]="form.invalid" (click)="save()" value="Add">
+<input type="button" [disabled]="form.invalid"  (click)="update()" value="Update">
+</form>
+</div>

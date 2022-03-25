@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {RouterModule, Routes} from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppointmentCreateComponent } from './Appointment/appointment-create/appointment-create.component';
 import { AppointmentReadComponent } from './Appointment/appointment-read/appointment-read.component';
 import { AppointmentUpdateComponent } from './Appointment/appointment-update/appointment-update.component';
 import { AppointmentDeleteComponent } from './Appointment/appointment-delete/appointment-delete.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AppointmentService } from './Features/appointment.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterbySpecialityPipe } from './pipes/filterby-speciality.pipe';
@@ -24,20 +23,38 @@ import { EmployeeReadComponent } from './Employee/employee-read/employee-read.co
 import { EmployeeUpdateComponent } from './Employee/employee-update/employee-update.component';
 import { FilterEmployeeNamePipe } from './pipes/filter-employee-name.pipe';
 import { HomeComponent } from './home/home.component';
-import {NavbarComponent} from './navbar/navbar.component';
+import {NavbarComponent} from './Core/navbar/navbar.component';
 import { ErrorComponent } from './error/error.component';
 import { ServiceCreateComponent } from './ClinicServices/service-create/service-create.component';
 import { ServiceDeleteComponent } from './ClinicServices/service-delete/service-delete.component';
 import { ServiceReadComponent } from './ClinicServices/service-read/service-read.component';
 import { ServiceUpdateComponent } from './ClinicServices/service-update/service-update.component'
-import {DoctorCreateComponent} from './Doctor/doctor-create/doctor-create.component'
-const routes: Routes= [
-  {path:"home", component:HomeComponent},
-  {path:"employee", component:EmployeeCreateComponent},
-  {path:"", redirectTo:"/home",pathMatch:"full"},
-  {path:"employeeList", component:EmployeeReadComponent},
-  {path:"**", component:ErrorComponent}, //must be the last
-]
+import {DoctorCreateComponent} from './Doctor/doctor-create/doctor-create.component';
+import { EmployeeComponent } from './Employee/employee/employee.component';
+import { DoctorComponent } from './Doctor/doctor/doctor.component';
+import { AdminDashboardComponent } from './Core/admin-dashboard/admin-dashboard.component';
+import { DoctorDeleteComponent } from './Doctor/doctor-delete/doctor-delete.component';
+import { DoctorUpdateComponent } from './Doctor/doctor-update/doctor-update.component';
+import { DoctorReadComponent } from './Doctor/doctor-read/doctor-read.component';
+import { FilterbyDocnamePipe } from './pipes/filterby-docname.pipe';
+import { SortDoctorPipe } from './pipes/sort-doctor.pipe';
+import { PatientCreateComponent } from './Patient/patient-create/patient-create.component';
+import { PatientDeleteComponent } from './Patient/patient-delete/patient-delete.component';
+import { PatientReadComponent } from './Patient/patient-read/patient-read.component';
+import { PatientUpdateComponent } from './Patient/patient-update/patient-update.component';
+import { PrescriptionCreateComponent } from './Prescription/prescription-create/prescription-create.component';
+import { PrescriptionUpdateComponent } from './Prescription/prescription-update/prescription-update.component';
+import { PrescriptionDeleteComponent } from './Prescription/prescription-delete/prescription-delete.component';
+import { PrescriptionReadComponent } from './Prescription/prescription-read/prescription-read.component';
+import { InvoiceCreateComponent } from './Invoice/invoice-create/invoice-create.component';
+import { InvoiceDeleteComponent } from './Invoice/invoice-delete/invoice-delete.component';
+import { InvoiceReadComponent } from './Invoice/invoice-read/invoice-read.component';
+import { InvoiceUpdateComponent } from './Invoice/invoice-update/invoice-update.component';
+import { FilterbyPatnamePipe } from './pipes/filterby-patname.pipe';
+import { SortPatientPipe } from './pipes/sort-patient.pipe';
+import { SortPrescriptPipe } from './pipes/sort-prescript.pipe';
+import { FilterbyPrescriptPipe } from './pipes/filterby-prescript.pipe';
+import { UsersReadComponent } from './Users/users-read/users-read.component';
 
 @NgModule({
   declarations: [
@@ -52,10 +69,36 @@ const routes: Routes= [
     MedicineUpdateComponent,
     MedicineReadComponent,
     SortComponentPipe,
+    SortPatientPipe,
+    SortPrescriptPipe,
+    FilterbyPrescriptPipe,
     FilterMedicineNamePipe,
+    FilterbyPatnamePipe,
+    FilterbyDocnamePipe,
+    SortDoctorPipe,
     EmployeeCreateComponent,
     EmployeeDeleteComponent,
     EmployeeReadComponent,
+    DoctorDeleteComponent,
+    DoctorUpdateComponent,
+    DoctorCreateComponent,
+    DoctorReadComponent,
+    PatientCreateComponent,
+    PatientDeleteComponent,
+    PatientReadComponent,
+    PatientUpdateComponent,
+    PrescriptionCreateComponent,
+    PrescriptionUpdateComponent,
+    PrescriptionDeleteComponent,
+    PrescriptionReadComponent,
+    InvoiceCreateComponent,
+    InvoiceDeleteComponent,
+    InvoiceReadComponent,
+    InvoiceUpdateComponent,
+    MedicineCreateComponent,
+    MedicineDeleteComponent,
+    MedicineReadComponent,
+    MedicineUpdateComponent,
     EmployeeUpdateComponent,
     FilterEmployeeNamePipe,
     HomeComponent,
@@ -65,15 +108,17 @@ const routes: Routes= [
     ServiceDeleteComponent,
     ServiceReadComponent,
     ServiceUpdateComponent,
-    DoctorCreateComponent
+    DoctorCreateComponent,
+    EmployeeComponent,
+    DoctorComponent,
+    AdminDashboardComponent,
+    UsersReadComponent
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [AppointmentService, MedicineService],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ClinicServService } from 'src/app/Features/clinic-serv.service';
-import { ClinicServ } from 'src/app/Module/clinic-serv';
+import { ClinicServ } from 'src/app/Models/clinic-serv';
 
 @Component({
   selector: 'app-service-delete',
@@ -16,7 +16,7 @@ export class ServiceDeleteComponent implements OnInit {
 
   DeleteClinicService()
   {
-    this.clinicServe.DeleteClinicSer().subscribe((res)=>{})
-  }
-
+    this.clinicServe.DeleteClinicSer(this.cService).subscribe((res)=>{ alert("Service with Id: "+this.cService._id+" Deleted")
+  },(error)=>alert("This Service not still exist"))
+ }
 }

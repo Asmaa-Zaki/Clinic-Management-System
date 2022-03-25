@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicineService } from 'src/app/Features/medicine.service';
-import { Medicine } from 'src/app/Module/medicine';
+import { Medicine } from 'src/app/Models/medicine';
 
 @Component({
   selector: 'app-medicine-read',

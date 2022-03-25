@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Prescription } from './../Module/prescription';
+import { Prescription } from '../Models/prescription';
 
 @Pipe({
   name: 'sortPrescript'

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/Features/patient.service';
-import { Patient } from 'src/app/Module/patient';
+import { Patient } from 'src/app/Models/patient';
 
 @Component({
   selector: 'app-patient-delete',
@@ -16,9 +16,9 @@ export class PatientDeleteComponent implements OnInit {
 
   DeletePatient()
   {
-    this.patientService.DeletePat().subscribe((res)=>{
-
-    })
+    this.patientService.DeletePat(this.patient).subscribe((res)=>{
+      alert("Patient with Id: "+this.patient._id+" Deleted")
+    },(error)=>alert("Failed to delete this patient"))
   }
 
 }

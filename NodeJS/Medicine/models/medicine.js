@@ -5,12 +5,12 @@ const mongoose = require('../../db.js')
 const medicineSchema = mongoose.Schema({
     _id: {
         type: Number,
-        required: true
+       // required: true
     }
     ,
     medicineName: {
         type: String,
-        required: true
+        //required: true
     }
     ,
     brand: {

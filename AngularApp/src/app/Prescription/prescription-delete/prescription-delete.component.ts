@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Prescription } from 'src/app/Module/prescription';
+import { Prescription } from 'src/app/Models/prescription';
 import { PrescriptionService } from './../../Features/prescription.service';
 @Component({
   selector: 'app-prescription-delete',
@@ -13,8 +13,8 @@ export class PrescriptionDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
   DeletePrescription() {
-    this.prescriptionService.Deleteprescript().subscribe((res) => {
-
-    })
+    this.prescriptionService.Deleteprescript(this.prescription).subscribe((res) => {
+      alert(`Prescription with Id: ${this.prescription._id} deleted`)
+    }, (error)=> alert(`Prescription with Id: ${this.prescription._id} isn't exist to delete it`))
   }
 }

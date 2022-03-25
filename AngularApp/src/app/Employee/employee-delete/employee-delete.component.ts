@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/Features/employee.service';
-import { Employee } from 'src/app/Module/employee';
+import { Employee } from 'src/app/Models/employee';
 
 @Component({
   selector: 'app-employee-delete',
@@ -16,9 +16,9 @@ export class EmployeeDeleteComponent implements OnInit {
 
   DeleteEmployee()
   {
-    this.emplService.DeleteEmployee().subscribe(()=>{
-      
-    })
+    this.emplService.DeleteEmployee(this.employee).subscribe((res)=>{
+      alert("Employee with Id: "+this.employee._id+" Deleted")
+    },(error)=>alert(`Employee with id ${this.employee._id} isn't exist to delete it`))
   }
 
 }

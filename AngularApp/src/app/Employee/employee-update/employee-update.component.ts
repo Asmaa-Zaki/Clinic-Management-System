@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/Features/employee.service';
-import { Employee } from 'src/app/Module/employee';
+import { Employee } from 'src/app/Models/employee';
 
 @Component({
   selector: 'app-employee-update',
@@ -20,11 +20,11 @@ export class EmployeeUpdateComponent implements OnInit {
     this.empService.nEmployee= this.employee
   }
 
-  SaveEmp()
+  SaveEmp(emp:Employee)
   {
-    this.empService.EditEmployee().subscribe((res)=>{
-      
-    })
+    this.empService.EditEmployee(emp).subscribe((res)=>{
+      alert("updated")
+    },(error)=>alert("not exist"))
   }
 
 }

@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     if (!pat) return res.status(400).send('Invalid patient Id');
 
     const { error } = validationIncvoice(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error == true) return res.status(400).send(error.details[0].message);
     console.log("enter");
     let invoice = new Invoice({
         _id: req.body._id,
@@ -46,7 +46,7 @@ router.put('/:id', async (req, res) => {
     if (!pat) return res.status(400).send('Invalid Id');
 
     const { error } = validationIncvoice(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error == true) return res.status(400).send(error.details[0].message);
 
     const invoice = await Invoice.findByIdAndUpdate(req.params.id, {
         _id: req.body._id,
@@ -59,7 +59,7 @@ router.put('/:id', async (req, res) => {
     }, { new: true });
 
     if (!invoice) return res.status(400).send('Invalid Invoice Id');
-    res.send("Updated  \t" + invoice);
+    res.send({"Updated  \t" : invoice});
 
 });//end App
 
@@ -67,6 +67,6 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const invoice = await Invoice.findByIdAndRemove(req.params.id);
     if (!invoice) return res.status(400).send("Invalid ID");
-    res.send("Deleted \t" + invoice);
+    res.send({"Deleted \t" : invoice});
 });
 module.exports = router;

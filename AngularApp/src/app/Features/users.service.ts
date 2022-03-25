@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Input } from '@angular/core';
-import { Users } from '../Module/users';
+import { Users } from '../Models/users';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-
   @Input() nUser: Users= new Users(0, "", "", "")
+  static active= false
+  static current=""
+  static currentUser:any
 
   readonly baseURL= 'http://localhost:3000/users'
 

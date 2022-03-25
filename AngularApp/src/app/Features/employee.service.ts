@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Employee } from '../Module/employee';
+import { Employee } from '../Models/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +25,13 @@ export class EmployeeService {
     return this.http.get(this.baseURL)
   }
 
-  DeleteEmployee()
+  DeleteEmployee(emp:Employee)
   {
-    return this.http.delete(this.baseURL+'/'+this.nEmployee._id)
+    return this.http.delete(this.baseURL+'/'+emp._id)
   }
 
-  EditEmployee()
+  EditEmployee(emp:Employee)
   {
-    return this.http.put(this.baseURL+'/'+this.nEmployee?._id, this.nEmployee)
+    return this.http.put(this.baseURL+'/'+emp._id, emp)
   }
 }

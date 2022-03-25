@@ -6,15 +6,15 @@
             <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortIdDesc()"></i>
         </th>
         <th>
-            <label class="fw-bold">Doctor Name</label>
+            <label class="fw-bold">Doc Name</label>
             <i appSortParams  class="fa fa-arrow-up" (click)="sortDocNameAsc()"></i>
             <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortDocNameDesc()"></i>
         </th>
-        <th>
+        <!-- <th>
             <label>SSN</label>
             <i appSortParams  class="fa fa-arrow-up" (click)="sortSSNAsc()"></i>
             <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortSSNDesc()"></i>
-        </th>
+        </th> -->
         <th>
             <label>Phone</label>
             <i appSortParams  class="fa fa-arrow-up" (click)="sortPhoneAsc()"></i>
@@ -26,7 +26,7 @@
             <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortAddressDesc()"></i>
         </th>
         <th>
-            <label>Medical Sepciality</label>
+            <label>Sepciality</label>
             <i appSortParams  class="fa fa-arrow-up" (click)="sortSpecialityAsc()"></i>
             <i appSortParams  class="fa fa-arrow-down sorting" (click)="sortSpecialityDesc()"></i>
         </th>
@@ -43,19 +43,20 @@
         <th>
             <input type="text" class="w w-75 h-25" [(ngModel)]="searchValue" placeholder="Filter by doctorName">
         </th>
+        <th>
+            <a (click)="show()"><i class="fa fa-refresh refresh" aria-hidden="true" style="cursor: pointer;"></i></a>
+        </th>
     </tr>
     <tr *ngFor="let doc of (doctorService.DocList|filterbyDocname:searchValue|sortDoctor:direction:column:type)">
         <td>{{doc._id}}</td>
         <td>{{doc.doctorName}}</td>
-        <td>{{doc.SSN}}</td>
+        <!-- <td>{{doc.SSN}}</td> -->
         <td>{{doc.phone}}</td>
         <td>{{doc.address}}</td>
         <td>{{doc.medicalSpecialty}}</td>
         <td>{{doc.username}}</td>
         <td>{{doc.password}}</td>
-        <td><app-doctor-update [doctor]="doc"></app-doctor-update></td>
+        <a [routerLink]="['edit',doc._id]" ><i class="fa fa-edit" aria-hidden="true" style="font-weight: bold; font-size: larger;"></i></a>
         <td><app-doctor-delete [doctor]="doc"></app-doctor-delete></td>
     </tr>
 </table>
-
-<button style="margin-left: 170px;" class="btn btn-success " (click)="show()">Refresh</button>

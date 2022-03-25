@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
     if (!doctor) return res.status(400).send('Invalid Id');
     //--------------Check Body Request
     const { error } = validationAppointment(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error== true) return res.status(400).send(error.details[0].message);
 
     let newAppointment = new appointment({
         _id: req.body._id,
@@ -97,8 +97,8 @@ router.delete('/:id', async (req, res) => {
 
     if (!appoint) return res.status(400).send('The genre with the given ID was not found.');
 
-    console.log("delete");
-    res.send("DELETE FROM DB\t" + appoint);
+   // console.log("delete");
+    res.send({"DELETE FROM DB\t" : appoint});
 })
 
 module.exports = router

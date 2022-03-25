@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ClinicServ } from '../Module/clinic-serv';
+import { ClinicServ } from '../Models/clinic-serv';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +25,13 @@ export class ClinicServService {
     return this.http.get(this.baseURL)
   }
 
-  DeleteClinicSer()
+  DeleteClinicSer(ser:ClinicServ)
   {
-    return this.http.delete(this.baseURL+'/'+this.nClinicServ._id)
+    return this.http.delete(this.baseURL+'/'+ser._id)
   }
 
-  EditClinicServ()
+  EditClinicServ(ser:ClinicServ)
   {
-    return this.http.put(this.baseURL+'/'+this.nClinicServ._id, this.nClinicServ)
+    return this.http.put(this.baseURL+'/'+ser._id, ser)
   }
 }

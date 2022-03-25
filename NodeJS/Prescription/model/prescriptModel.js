@@ -18,7 +18,7 @@ const prescriptSchema = mongoose.Schema({
     },
     medicineId: {
         type: medicineSchema,
-        requierd: true
+        required: true
     },
     numberOfDoses: {
         type: String
